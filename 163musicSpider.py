@@ -9,6 +9,7 @@ import requests
 import time
 import json
 from bs4 import BeautifulSoup
+import mail
 
 #初始化数据库
 client = pymongo.MongoClient('localhost',27017)
@@ -183,5 +184,6 @@ get_music_list_url(1)
 get_music_list_info()
 print music_list_url.count()
 print '运行时间是：', time.time()-start
+mail.send_email(music_list_url.count(), time.time()-start)
     
     
