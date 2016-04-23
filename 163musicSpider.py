@@ -10,6 +10,10 @@ import time
 import json
 from bs4 import BeautifulSoup
 import mail
+import sys
+reload(sys)
+
+sys.setdefaultencoding('utf-8')
 
 #初始化数据库
 client = pymongo.MongoClient('localhost',27017)
