@@ -55,7 +55,7 @@ def get_music_list_url(page):
         #得到歌单的html页面
         web_page = requests.get(url, headers=header, data=json.dumps(data))
         #用soup解析歌单的html页面
-        soup = BeautifulSoup(web_page.text)
+        soup = BeautifulSoup(web_page.text, "html5lib")
         #找到歌单的链接
         for i in soup.find_all(class_='msk'):
             #组装歌单的url
@@ -70,7 +70,7 @@ def get_music_list_url(page):
 def get_music_list_collect_num(url):
     data = {'id' : str(url[33:])}
     music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-    soup = BeautifulSoup(music_list_page.text)
+    soup = BeautifulSoup(music_list_page.text, "html5lib")
     music_list_collect_num = soup.find_all(class_='u-btni u-btni-fav ')[0].text
     if len(music_list_collect_num) == 4:
         return '0'
@@ -81,7 +81,7 @@ def get_music_list_collect_num(url):
 def get_music_list_share_num(url):
     data = {'id' : str(url[33:])}
     music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-    soup = BeautifulSoup(music_list_page.text)
+    soup = BeautifulSoup(music_list_page.text, "html5lib")
     music_list_share_num = soup.find_all(class_='u-btni u-btni-share ')
     if len(music_list_share_num) == 0:
         return '0'
@@ -92,7 +92,7 @@ def get_music_list_share_num(url):
 def get_music_list_comment_count(url):
     data = {'id' : str(url[33:])}
     music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-    soup = BeautifulSoup(music_list_page.text)
+    soup = BeautifulSoup(music_list_page.text, "html5lib")
     music_list_comment_count = soup.find_all(id='cnt_comment_count')
     if len(music_list_comment_count) == 0:
         return '此歌单没有评论'
@@ -103,7 +103,7 @@ def get_music_list_comment_count(url):
 def get_music_list_tags(url):
     data = {'id' : str(url[33:])}
     music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-    soup = BeautifulSoup(music_list_page.text)
+    soup = BeautifulSoup(music_list_page.text, "html5lib")
     music_list_tags = soup.find_all(class_='tags f-cb')
     if len(music_list_tags) == 0:
         return '此歌单没有标签'
@@ -115,7 +115,7 @@ def get_music_list_tags(url):
 def get_music_list_introduce(url):
     data = {'id' : str(url[33:])}
     music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-    soup = BeautifulSoup(music_list_page.text)
+    soup = BeautifulSoup(music_list_page.text, "html5lib")
     music_list_introduce = soup.find_all(id='album-desc-more')
     if len(music_list_introduce) == 0:
         return '此歌单没有介绍'
@@ -129,7 +129,7 @@ def get_music_list_info():
         url = i['url']
         data = {'id' : str(url[33:])}
         music_list_page = requests.get(url, headers=header, data=json.dumps(data))
-        soup = BeautifulSoup(music_list_page.text)
+        soup = BeautifulSoup(music_list_page.text, "html5lib")
         title = soup.h2.string
         music_list_owner_name = soup.find_all(class_='s-fc7')[0].string
         music_list_owner_href = 'http://music.163.com' + str(soup.a['href'])
