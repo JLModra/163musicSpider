@@ -23,6 +23,8 @@ netease_music_list = client['netease_music_list']
 music_list_url = netease_music_list['music_list_link']
 #歌单的信息music_list_info
 music_list_info = netease_music_list['music_list_info']
+#程序运行的信息debug_info
+debug_info = netease_music_list['debug_info']
 
 #网易云音乐歌单首页
 main_url = 'http://music.163.com/?_t=t#/discover/playlist'
@@ -188,6 +190,11 @@ get_music_list_url(1)
 get_music_list_info()
 print music_list_url.count()
 print '运行时间是：', time.time()-start
+#把纪录条数和运行时间写进数据库
+debug_info.insert_one({'num' : music_list_url.count(), 'time' : time.time()-start})
+
+# print debug_info.find_one()['num']
+# print debug_info.find_one()['time']
 #mail.send_email(music_list_url.count(), time.time()-start)
     
     
