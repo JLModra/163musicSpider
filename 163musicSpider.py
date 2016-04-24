@@ -10,8 +10,8 @@ import time
 import json
 from bs4 import BeautifulSoup
 import mail
-import sys
-reload(sys)
+# import sys
+# reload(sys)
 
 #sys.setdefaultencoding('utf-8')
 
@@ -171,7 +171,7 @@ def get_music_list_info():
 #             }
         #把数据导入数据库
         music_list_info.insert_one(data)
-#         print title
+        print str(title)
 #         print music_list_owner_name
 #         print music_list_owner_href
 #         print music_list_creat_time
@@ -188,6 +188,6 @@ get_music_list_url(1)
 get_music_list_info()
 print music_list_url.count()
 print '运行时间是：', time.time()-start
-mail.send_email(music_list_url.count(), time.time()-start, music_list_info)
+#mail.send_email(music_list_url.count(), time.time()-start)
     
     
