@@ -11,9 +11,9 @@ import json
 from bs4 import BeautifulSoup
 import mail
 # import sys
+# 
 # reload(sys)
-
-#sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf8') 
 
 #初始化数据库
 client = pymongo.MongoClient('localhost',27017)
@@ -171,7 +171,7 @@ def get_music_list_info():
 #             }
         #把数据导入数据库
         music_list_info.insert_one(data)
-        print str(title)
+        print title.encode('utf-8')
 #         print music_list_owner_name
 #         print music_list_owner_href
 #         print music_list_creat_time
