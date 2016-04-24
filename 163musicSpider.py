@@ -13,7 +13,7 @@ import mail
 import sys
 reload(sys)
 
-sys.setdefaultencoding('utf-8')
+#sys.setdefaultencoding('utf-8')
 
 #初始化数据库
 client = pymongo.MongoClient('localhost',27017)
@@ -171,7 +171,7 @@ def get_music_list_info():
 #             }
         #把数据导入数据库
         music_list_info.insert_one(data)
-        print title
+#         print title
 #         print music_list_owner_name
 #         print music_list_owner_href
 #         print music_list_creat_time
@@ -184,10 +184,10 @@ def get_music_list_info():
 #         print music_list_introduce
         
 start = time.time()
-get_music_list_url(42)
+get_music_list_url(1)
 get_music_list_info()
 print music_list_url.count()
 print '运行时间是：', time.time()-start
-mail.send_email(music_list_url.count(), time.time()-start)
+mail.send_email(music_list_url.count(), time.time()-start, music_list_info)
     
     
