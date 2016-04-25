@@ -191,6 +191,7 @@ if __name__ == "__main__":
     get_music_list_info()
     print music_list_url.count()
     print '运行时间是：', time.time()-start
+    debug_info.remove()
     #把程序运行的数据装入数据库
     debug_info.insert_one({'num' : music_list_url.count(), 'time' : time.time()-start})
 
