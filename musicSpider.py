@@ -49,7 +49,7 @@ def get_music_list_url(page):
     #用来装每页url的list
     page_url_list = []
     #观察链接发现每页的url之间有一个35的差值ֵ
-    page_num = [i for i in range(0,page*35 ,35)]
+    page_num = [i for i in range(0,int(page[1])*35 ,35)]
     #for循环构造每页的url
     for page in page_num:
         #把每页的url加入到list中
