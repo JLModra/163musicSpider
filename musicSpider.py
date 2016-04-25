@@ -10,7 +10,7 @@ import time
 import json
 from bs4 import BeautifulSoup
 # import mail
-# import sys
+import sys
 # 
 # reload(sys)
 # sys.setdefaultencoding('utf8') 
@@ -186,7 +186,7 @@ def get_music_list_info():
 #         print music_list_introduce
         
 start = time.time()
-get_music_list_url(1)
+get_music_list_url(sys.argv)
 get_music_list_info()
 print music_list_url.count()
 print '运行时间是：', time.time()-start
