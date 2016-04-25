@@ -84,7 +84,7 @@ def send_email(num, time, file):
     server.connect(smtp_server, 25)
 
     #打印出和SMTP服务器交互的所有消息
-    server.set_debuglevel(1)
+    #server.set_debuglevel(1)
 
     #登陆SMTP服务器
     server.login(from_addr, password)
