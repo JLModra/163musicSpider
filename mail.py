@@ -99,4 +99,4 @@ def send_email(num, time, file):
     #提示
     print '已发送邮件！'
     
-send_email(debug_info.find_one()['num'], debug_info.find_one()['time'], '/163musicSpider/music_list_info.csv')
+send_email(debug_info.find_one()['num'], debug_info.find_one()['time'], './music_list_info.csv')
