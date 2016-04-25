@@ -184,17 +184,19 @@ def get_music_list_info():
 #         print music_list_count
 #         print music_list_tags
 #         print music_list_introduce
-        
-start = time.time()
-get_music_list_url(sys.argv)
-get_music_list_info()
-print music_list_url.count()
-print '运行时间是：', time.time()-start
-#把程序运行的数据装入数据库
-debug_info.insert_one({'num' : music_list_url.count(), 'time' : time.time()-start})
+ 
+if __name__ == "__main__":   
+    start = time.time()
+    get_music_list_url(sys.argv)
+    get_music_list_info()
+    print music_list_url.count()
+    print '运行时间是：', time.time()-start
+    #把程序运行的数据装入数据库
+    debug_info.insert_one({'num' : music_list_url.count(), 'time' : time.time()-start})
 
-# print debug_info.find_one()['num']
-# print debug_info.find_one()['time']
-#mail.send_email(music_list_url.count(), time.time()-start)
+    # print debug_info.find_one()['num']
+    # print debug_info.find_one()['time']
+    #mail.send_email(music_list_url.count(), time.time()-start)    
+
     
     
