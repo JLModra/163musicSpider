@@ -1,7 +1,6 @@
 #   -*- coding:utf-8  -*-
 '''
 Created on 2016年4月24日
-
 @author: Modra
 '''
 from email.header import Header
@@ -99,4 +98,4 @@ def send_email(num, time, file):
     #提示
     print '已发送邮件！'
     
-send_email(debug_info.find_one()['num'], debug_info.find_one()['time'], './music_list_info.csv')
+send_email(debug_info.find_one()['num'], debug_info.find_one()['time'], 'C:\music_list_info.csv')
